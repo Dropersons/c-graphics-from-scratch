@@ -1,0 +1,33 @@
+#include<stdio.h>
+-- Diagonal print of specified value in a 10 cross 10 matrix
+
+#define HEIGHT 10
+#define WIDTH 10
+
+int main()
+{
+    int buffer[HEIGHT][WIDTH];
+    
+    for(int i = 0; i < HEIGHT; i++)
+    {
+        for(int j = 0; j < WIDTH; j++)
+        {
+            buffer[i][j] = 0;
+        }
+    }
+    
+    for(int i = 0; i < HEIGHT; i++)
+    {
+        buffer[i][i]= 1;
+    }
+    
+    for(int i = 0; i < HEIGHT; i++)
+    {
+        for(int j = 0; j < WIDTH; j++)
+        {
+            printf("%d " , buffer[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
