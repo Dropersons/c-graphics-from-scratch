@@ -1,0 +1,28 @@
+-- To create a 2d matrix and place '1' in a certain position specified
+
+#include<stdio.h>
+
+int main()
+{
+    int screen[3][3];
+    
+    for(int i = 0; i < 3; i++)
+    {
+        for(int j = 0; j < 3; j++)
+        {
+            screen[i][j]= 0;
+        }
+    }
+    
+    screen[2][2] = 1;
+    
+    for(int i = 0; i < 3; i++)
+    {
+        for(int j = 0; j < 3; j++)
+        {
+            printf("%d ", screen[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
