@@ -1,0 +1,45 @@
+-- Draw a custom shape with specified value in a matrix
+
+#include<stdio.h>
+#define HEIGHT 10
+#define WIDTH 10
+
+void draw_custom(int buffer[HEIGHT][WIDTH] , int startX , int startY, int shape_height , int shape_width)
+{
+    for(int i = startY; i < startY + shape_height; i++)
+    {
+        for(int j = startX; j < startX + shape_width; j++)
+        {
+            if(i >= 0 && i < HEIGHT && j >= 0 && j < WIDTH)
+            {
+                buffer[i][j] = 1;
+            }
+        }
+    }
+}
+
+int main()
+{
+    int buffer[HEIGHT][WIDTH];
+    
+    for(int i = 0; i < HEIGHT; i++)
+    {
+        for(int j = 0; j < WIDTH; j++)
+        {
+            buffer[i][j] = 0;
+        }
+    }
+    
+    draw_custom(buffer , 2 ,3 , 4 , 3);
+    
+    for(int i = 0; i < HEIGHT; i++)
+    {
+        for(int j = 0; j < WIDTH; j++)
+        {
+            printf("%d " , buffer[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+    
+}
