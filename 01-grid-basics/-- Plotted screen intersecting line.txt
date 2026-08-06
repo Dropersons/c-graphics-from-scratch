@@ -1,0 +1,59 @@
+-- Plotted screen intersecting lines(a cross-hair) in a 2d array
+
+#include<stdio.h>
+#define HEIGHT 10
+#define WIDTH 10
+
+void clear_Buffer(int buffer[HEIGHT][WIDTH])
+{
+    for(int i = 0; i < HEIGHT; i++)
+    {
+        for(int j = 0; j < WIDTH; j++)
+        {
+            buffer[i][j] = 0;
+        }
+    }
+}
+
+void draw_horizontal(int buffer[HEIGHT][WIDTH] , int y, int startX , int endX)
+{
+    for(int j = startX; j <= endX; j++)
+    {
+        if(y >= 0 && y < HEIGHT && j >= 0 && j < WIDTH)
+        {
+            buffer[y][j] = 1;
+        }
+    }
+}
+
+void draw_Vertical(int buffer[HEIGHT][WIDTH], int x, int startY, int endY)
+{
+    for(int i = startY; i <= endY; i++)
+    {
+        if(x >= 0 && x < HEIGHT && i >= 0 && i < WIDTH)
+        {
+            buffer[i][x] = 1;
+        }
+    }
+}
+
+void render_Buffer(int buffer[HEIGHT][WIDTH])
+{
+    for(int i = 0; i < HEIGHT; i++)
+    {
+        for(int j = 0; j < WIDTH; j++)
+        {
+            printf("%d ", buffer[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main()
+{
+    int buffer[HEIGHT][WIDTH];
+    clear_Buffer(buffer);
+    draw_horizontal(buffer , 4 , 1 , 8);
+    draw_Vertical(buffer , 4 , 1 , 8);
+    render_Buffer(buffer);
+}
